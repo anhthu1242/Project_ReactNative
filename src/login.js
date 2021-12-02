@@ -14,10 +14,8 @@ const LoginScreen = ({navigation}) =>{
     return (
         <View style={styles.container}>
           <ImageBackground  style={styles.imgbg}
-          source = {require('../../assets/background.png')}
-         
-          >
-              
+          source = {require('../../assets/background.png')}        
+          >              
             <Text style={styles.text}>ĐĂNG NHẬP</Text>
             <View style={styles.inputContainer}>
               <TextInput
