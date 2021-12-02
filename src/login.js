@@ -14,7 +14,7 @@ const LoginScreen = ({navigation}) =>{
     return (
         <View style={styles.container}>
           <ImageBackground  style={styles.imgbg}
-          source = {require('../../assets/background.png')}        
+          source = {require('../assets/background.png')}        
           >              
             <Text style={styles.text}>ĐĂNG NHẬP</Text>
             <View style={styles.inputContainer}>
@@ -39,11 +39,14 @@ const LoginScreen = ({navigation}) =>{
               >
                 <Text style={styles.buttonText} >Sign in</Text>
               </TouchableOpacity>
+
+
               <TouchableOpacity
-                activeOpacity={0.4}
+                activeOpacity={0.1}
                 onPress={() => navigation.navigate('HomeScreen')}
               >
-                <Text style={styles.linktext} >Don't have account ? Sign up</Text>
+                <Text style={styles.linktext1}   >Don't have account ?   Sign up </Text> 
+
               </TouchableOpacity>
             </View>
 
@@ -61,23 +64,24 @@ const styles = StyleSheet.create({
 
   },
   imgbg :{
-    height : 300,
-    width :300 , 
+    height : '100%',
+    width :'100%' , 
     alignItems :'center',
   },
   text :{
     fontWeight : 'bold',
-    fontSize :20,
-    color : 'white',
+    color : '#fff',
     fontFamily :'Open Sans',
-    fontSize : 13,
-    marginTop : 40,
+    fontSize : 40,
+    marginTop : 100,
   },
   inputContainer :{
-    width :'70%'
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   input :{
-    backgroundColor :'white',
+    backgroundColor :'#ffffff10',
     paddingHorizontal :10 ,
     paddingVertical :10 ,
     borderRadius :10,
@@ -85,31 +89,31 @@ const styles = StyleSheet.create({
     borderWidth :2 ,
   },
   button :{
-    backgroundColor :'orange',
-    width : '70%',
-    padding :6 ,
+    backgroundColor :'#999966',
     alignItems :'center',
     borderRadius :10,
+    minHeight: 60,
+    height: 60,
+    minWidth: 100,
   },
   buttonContainer :{
-    width : '60%',
     justifyContent : 'center',
     alignItems :'center',
-    marginTop :40,
+    marginTop :30,
   },
   buttonText :{
-    color :'black',
+    color :'blue',
     fontWeight : '400',
-    fontSize :10,
-    marginTop: 10 ,
-    fontSize : 16,
+    fontSize :16,
+    marginTop: 20 ,
   },
-  linktext :{
+  linktext1 :{
     textDecorationLine: 'underline',
     color :'red',
-    marginTop : 10 ,
     fontSize : 13,
-  }
+  },
+
+
 });
   
 export default LoginScreen;
