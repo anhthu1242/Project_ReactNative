@@ -6,7 +6,7 @@ import HomeScreen from './src/Screen/HomeScreen';
 import LoginScreen from './src/Screen/LoginScreen';
 import VideoScreen from './src/Screen/VideoScreen';
 import AnhScreen from './src/Screen/AnhScreen';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 
 const Stack = createStackNavigator();
 

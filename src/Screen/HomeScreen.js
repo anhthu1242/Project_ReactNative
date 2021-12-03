@@ -12,6 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {LoginScreen} from './LoginScreen';
 import {AnhScreen} from './AnhScreen';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Drawer = createDrawerNavigator(); 
 
@@ -102,7 +103,7 @@ export default function Home({ navigation, route }) {
                 title: 'Kho chứa video',
                 drawerIcon: ({ focused }) => (
                 <FontAwesome5
-                    name="autoprefixer"
+                    name="album-collection"
                     size={focused ? 25 : 20}
                     color={focused ? '#0080ff' : '#999999'}
                 />
@@ -116,7 +117,7 @@ export default function Home({ navigation, route }) {
                 title: 'Kho ảnh Shin cute',
                 drawerIcon: ({ focused }) => (
                 <FontAwesome5
-                    name="btc"
+                    name="file-image"
                     size={focused ? 25 : 20}
                     color={focused ? '#0080ff' : '#999999'}
                 />
