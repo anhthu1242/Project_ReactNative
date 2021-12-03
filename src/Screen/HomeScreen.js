@@ -8,6 +8,13 @@ import {
     TextInput,
 } from 'react-native';
 import CustomButton from '../utils/CustomButton';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import {LoginScreen} from './LoginScreen';
+import {AnhScreen} from './AnhScreen';
+
+const Drawer = createDrawerNavigator(); 
+
 
 export default function Home({ navigation, route }) {
 
@@ -17,6 +24,7 @@ export default function Home({ navigation, route }) {
     useEffect(() => {
         getData();
     }, []);
+
 
     const getData = () => {
         try {
@@ -59,29 +67,72 @@ export default function Home({ navigation, route }) {
     }
 
     return (
-        <View style={styles.body}>
-            <Text style={[
-                styles.text
-            ]}>
-                Shin Welcome to {email} !
-            </Text>
-            <TextInput
-                style={styles.input}
-                placeholder='Enter your Email'
-                value={email}
-                onChangeText={(value) => setEmail(value)}
+
+    <NavigationContainer>
+        <Drawer.Navigator
+            initialRouteName="VideoScreen"
+            drawerPosition='left'
+            drawerType="front"
+            edgeWidth={100}
+            hideStatusBar={false}
+            overlayColor='#00000090'
+            drawerStyle={{
+            backgroundColor: '#e6e6e6',
+            width: 250
+            }}
+            screenOptions={{
+            headerShown: true,
+            swipeEnabled: true,
+            gestureEnabled: true,
+            headerTitleAlign: 'center',
+            headerStyle: {
+                backgroundColor: '#0080ff'
+            },
+            headerTintColor: '#ffffff',
+            headerTitleStyle: {
+                fontSize: 25,
+                fontWeight: 'bold'
+            }
+            }}
+        >
+            <Drawer.Screen
+            name="VideoScreen"
+            component={VideoScreen}
+            options={{
+                title: 'Kho chứa video',
+                drawerIcon: ({ focused }) => (
+                <FontAwesome5
+                    name="autoprefixer"
+                    size={focused ? 25 : 20}
+                    color={focused ? '#0080ff' : '#999999'}
+                />
+                )
+            }}
             />
-            <CustomButton
-                title='Update'
-                color='#ff7f00'
-                onPressFunction={updateData}
+            <Drawer.Screen
+            name="AnhScreen"
+            component={AnhScreen}
+            options={{
+                title: 'Kho ảnh Shin cute',
+                drawerIcon: ({ focused }) => (
+                <FontAwesome5
+                    name="btc"
+                    size={focused ? 25 : 20}
+                    color={focused ? '#0080ff' : '#999999'}
+                />
+                )
+            }}
             />
-            <CustomButton
-                title='Remove'
-                color='#f40100'
-                onPressFunction={removeData}
-            />
-        </View>
+        </Drawer.Navigator>
+    </NavigationContainer>
+        // <View style={styles.body}>
+        //     <Text style={[
+        //         styles.text
+        //     ]}>
+        //         Shin Welcome to {email} !
+        //     </Text>
+
+        // </View>
     )
 }
 
