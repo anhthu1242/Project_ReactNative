@@ -6,14 +6,15 @@ import {
     Text,
     TextInput,
     Alert,
+    ImageBackground
 } from 'react-native';
 import CustomButton from '../utils/CustomButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Login({ navigation }) {
 
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     useEffect(() => {
         getData();
@@ -33,7 +34,7 @@ export default function Login({ navigation }) {
     }
 
     const setData = async () => {
-        if (name.length == 0 || age.length == 0) {
+        if (email.length == 0 || password.length == 0) {
             Alert.alert('Warning!', 'Please write your data.')
         } else {
             try {
@@ -50,31 +51,31 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <View style={styles.body} >
-            <Image
-                style={styles.logo}
+      <ImageBackground
+            style={styles.body}
                 source={require('../../assets/background.png')}
-            />
+      >
+                
             <Text style={styles.text}>
                 WELLCOM TO SIGN-IN
             </Text>
             <TextInput
                 style={styles.input}
                 placeholder='Enter your email'
-                onChangeText={(value) => setName(value)}
+                onChangeText={(value) => setEmail(value)}
             />
             <TextInput
                  secureTextEntry
                 style={styles.input}
                 placeholder='Enter your password'
-                onChangeText={(value) => setAge(value)}
+                onChangeText={(value) => setPassword(value)}
             />
             <CustomButton
                 title='Login'
-                color='#1eb900'
+                color='#1eb90070'
                 onPressFunction={setData}
             />
-        </View>
+        </ImageBackground>
     )
 }
 
@@ -84,23 +85,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#0080ff',
     },
-    logo: {
-        width: 100,
-        height: 100,
-        margin: 20,
-    },
     text: {
         fontSize: 30,
-        color: '#ffffff',
-        marginBottom: 130,
+        marginTop: 150,
+        color: '#000000',
+        marginBottom: 80,
+        alignContent: 'center'
     },
     input: {
-
         width: 300,
         borderWidth: 1,
-        borderColor: '#555',
+        borderColor: '#000000',
         borderRadius: 10,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#ffffff09',
         textAlign: 'center',
         fontSize: 20,
         marginBottom: 10,

@@ -11,8 +11,8 @@ import CustomButton from '../utils/CustomButton';
 
 export default function Home({ navigation, route }) {
 
-    const [name, setName] = useState('');
-    const [age, setAge] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     useEffect(() => {
         getData();
@@ -24,8 +24,8 @@ export default function Home({ navigation, route }) {
                 .then(value => {
                     if (value != null) {
                         let user = JSON.parse(value);
-                        setName(user.Email);
-                        setAge(user.Password);
+                        setEmail(user.Email);
+                        setPassword(user.Password);
                     }
                 })
         } catch (error) {
@@ -34,7 +34,7 @@ export default function Home({ navigation, route }) {
     }
 
     const updateData = async () => {
-        if (name.length == 0) {
+        if (email.length == 0) {
             Alert.alert('Warning!', 'Please write your data.')
         } else {
             try {
@@ -68,8 +68,8 @@ export default function Home({ navigation, route }) {
             <TextInput
                 style={styles.input}
                 placeholder='Enter your Email'
-                value={name}
-                onChangeText={(value) => setName(value)}
+                value={email}
+                onChangeText={(value) => setEmail(value)}
             />
             <CustomButton
                 title='Update'
