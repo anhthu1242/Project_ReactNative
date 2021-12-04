@@ -4,6 +4,7 @@ import {
     View,
     Text,
     Pressable,
+    ImageBackground,
 } from 'react-native';
 
 export default function AnhScreen({ navigation }) {
@@ -14,7 +15,11 @@ export default function AnhScreen({ navigation }) {
     }
 
     return (
-        <View style={styles.body}>
+        <ImageBackground
+            style={styles.body}
+            source={require('../../assets/bgScreen1.png')}
+        >
+            <View style={styles.body}>
             <Text style={styles.text}>
                 kho ảnh 
         </Text>
@@ -24,6 +29,8 @@ export default function AnhScreen({ navigation }) {
             >
             </Pressable>
         </View>
+        </ImageBackground>
+        
     )
 }
 

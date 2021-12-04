@@ -53,7 +53,7 @@ export default function Login({ navigation }) {
     return (
       <ImageBackground
             style={styles.body}
-                source={require('../../assets/background.png')}
+            source={require('../../assets/background.png')}
       >
                 
             <Text style={styles.text}>
