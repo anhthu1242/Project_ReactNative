@@ -37,6 +37,7 @@ function App() {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
+          screenOptions = {{header : () => null}}
         />
       </Stack.Navigator>
     </NavigationContainer>
