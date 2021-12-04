@@ -16,6 +16,7 @@ function App() {
       <Stack.Navigator
         initialRouteName="LoginScreen"
         screenOptions={{
+          header : () => null,
           headerTitleAlign: 'center',
           headerStyle: {
             backgroundColor: '#0080ff'
@@ -37,7 +38,6 @@ function App() {
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
-          screenOptions = {{header : () => null}}
         />
       </Stack.Navigator>
     </NavigationContainer>

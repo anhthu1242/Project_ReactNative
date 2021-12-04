@@ -81,7 +81,7 @@ export default function Home({ navigation, route }) {
           width: 250
         }}
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           swipeEnabled: true,
           gestureEnabled: true,
           headerTitleAlign: 'center',
