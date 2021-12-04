@@ -8,12 +8,13 @@ import {
     TextInput,
 } from 'react-native';
 import CustomButton from '../utils/CustomButton';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import {LoginScreen} from './LoginScreen';
 import {VideoScreen} from './VideoScreen';
 import {AnhScreen} from './AnhScreen';
+import {HelpScreen} from './HelpScreen';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator(); 
 
@@ -68,7 +69,8 @@ export default function Home({ navigation, route }) {
         }
     }
 
-    return (
+    return ( 
+       <NavigationContainer>
         <Drawer.Navigator
         initialRouteName="VideoScreen"
         drawerPosition='left'
@@ -77,9 +79,10 @@ export default function Home({ navigation, route }) {
         hideStatusBar={false}
         overlayColor='#00000090'
         drawerStyle={{
-          backgroundColor: '#e6e6e6',
-          width: 250
+          backgroundColor: '#c6cbef',
+          width: 240,
         }}
+        
         screenOptions={{
           headerShown: true,
           swipeEnabled: true,
@@ -94,9 +97,10 @@ export default function Home({ navigation, route }) {
             fontWeight: 'bold'
           }
         }}
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
         >
         <Drawer.Screen
-          name="Video Screen"
+          name="VideoScreen"
           component={VideoScreen}
           options={{
             drawerIcon: ({ focused }) => (
@@ -109,7 +113,7 @@ export default function Home({ navigation, route }) {
           }}
         />
         <Drawer.Screen
-          name="Ảnh Screen"
+          name="AnhScreen"
           component={AnhScreen}
           options={{
             drawerIcon: ({ focused }) => (
@@ -122,6 +126,7 @@ export default function Home({ navigation, route }) {
           }}
         />
         </Drawer.Navigator>
+      </NavigationContainer>
     )
 }
 
