@@ -6,20 +6,140 @@ import {
     Text,
     Alert,
     TextInput,
+    Pressable,
+    ImageBackground
 } from 'react-native';
 import CustomButton from '../utils/CustomButton';
-import {NavigationContainer} from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import {VideoScreen} from './VideoScreen';
-import {AnhScreen} from './AnhScreen';
-import {HelpScreen} from './HelpScreen';
+import {NavigationContainer} from '@react-navigation/native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { NavigationContainer } from '@react-navigation/native';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+} from '@react-navigation/drawer';
+
+
+
 
 const Drawer = createDrawerNavigator(); 
 
+// function VideoScreen({ navigation }) {
+
+//     const onPressHandler = () => {
+//         navigation.openDrawer();
+//         navigation.navigate('./VideoScreen');
+//     }
+//     const ListVideo = ({video}) => {
+//       return (
+//           <View style ={styles.shadow}>
+//               <View style ={styles.container}>
+//                   <Image 
+//                       style ={styles.img}
+//                       source={video.image}>
+//                   </Image>
+//                   <View style = {styles.info}>
+//                       <Text style={styles.name}>{video.name} </Text>
+//                       <View style={styles.link}>
+//                           <Text style={styles.link}>{video.link}</Text>
+//                           <TouchableOpacity
+//                           activeOpacity={0.4}
+//                           onPress={() => navigation.navigate('DetailsScreen', video)}
+//                           >
+//                           <Text style={styles.details} > Chi tiết  </Text>
+//                           </TouchableOpacity>
+//                           <Pressable
+//                             onPress={onPressHandler}
+//                             title = "Thêm"
+//                             style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#0f0' })}
+//                           >
+//                           </Pressable>
+  
+//                       </View>
+//                   </View>
+//           </View>
+//        </View>
+//       );
+//     };
+//     return (
+      
+//         <ImageBackground
+//             style={styles.body}
+//             source={require('../../assets/bgScreen.png')}
+//         >
+//         <SafeAreaView>
+//           <View style={styles.header}>
+              
+//             <MaterialIcons name="arrow-back-ios" size={24} color="black" onPress={navigation.goBack} />
+//             <Text style={{fontSize: 20, fontWeight: 'bold'}} > Video hay  </Text>
+//           </View>
+//           <FlatList 
+//             showsVerticalScrollIndicator={false}
+//             numColumns={2}
+//             data={videoes}
+//             renderItem = {({item}) =><View style ={styles.wapper}>
+//                                         <ListVideo dress ={item} />
+//                                       </View>}
+//           />     
+//         </SafeAreaView>
+//         </ImageBackground>
+        
+//     )
+// }
+
+// function AnhScreen({ navigation }) {
+
+//     const onPressHandler = () => {
+//         // navigation.navigate('Screen_A');
+//         navigation.goBack();
+//     }
+
+//     return (
+//         <ImageBackground
+//             style={styles.body}
+//             source={require('../../assets/bgScreen1.png')}
+//         >
+//             <View style={styles.body}>
+//             <Text style={styles.text}>
+//                 kho ảnh 
+//         </Text>
+//             <Pressable
+//                 onPress={onPressHandler}
+//                 style={({ pressed }) => ({ backgroundColor: pressed ? '#ddd' : '#0f0' })}
+//             >
+//             </Pressable>
+//         </View>
+//         </ImageBackground>
+        
+//     )
+// }
+
+// function CustomDrawerContent(props) {
+//     return (
+//       <DrawerContentScrollView {...props} 
+//       >
+//         <DrawerItemList {...props} />
+//         <DrawerItem label="Help" onPress={() => alert('Link to help')} 
+//         options={{
+//             drawerIcon: ({ focused }) => (
+//               <FontAwesome5
+//                 name="file-video"
+//                 size={focused ? 25 : 20}
+//                 color={focused ? '#0080ff' : '#999999'}
+//               />
+              
+//             )
+//           }}
+//         />
+//       </DrawerContentScrollView>
+//     );
+//   }
+
+
+
 
 export default function Home({ navigation, route }) {
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -43,34 +163,7 @@ export default function Home({ navigation, route }) {
             console.log(error);
         }
     }
-
-    const updateData = async () => {
-        if (email.length == 0) {
-            Alert.alert('Warning!', 'Please write your data.')
-        } else {
-            try {
-                var user = {
-                    Email: email
-                }
-                await AsyncStorage.mergeItem('UserData', JSON.stringify(user));
-                Alert.alert('Success!', 'Your data has been updated.');
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
-
-    const removeData = async () => {
-        try {
-            await AsyncStorage.clear();
-            navigation.navigate('Login');
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
     return ( 
-       <NavigationContainer>
         <Drawer.Navigator
         initialRouteName="VideoScreen"
         drawerPosition='left'
@@ -109,6 +202,7 @@ export default function Home({ navigation, route }) {
                 size={focused ? 25 : 20}
                 color={focused ? '#0080ff' : '#999999'}
               />
+              
             )
           }}
         />
@@ -126,7 +220,6 @@ export default function Home({ navigation, route }) {
           }}
         />
         </Drawer.Navigator>
-      </NavigationContainer>
     )
 }
 
