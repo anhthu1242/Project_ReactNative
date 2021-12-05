@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 30,
         marginTop: 150,
-        color: '#000000',
+        color: '#0099aa',
         marginBottom: 80,
         alignContent: 'center'
     },
@@ -97,9 +97,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#000000',
         borderRadius: 10,
-        backgroundColor: '#ffffff09',
+        backgroundColor: '#ffffff90',
         textAlign: 'center',
         fontSize: 20,
         marginBottom: 10,
+        color: '#990076'
     }
 })

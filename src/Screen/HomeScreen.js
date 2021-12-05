@@ -193,7 +193,7 @@ export default function Home({ navigation, route }) {
       hideStatusBar={false}
       overlayColor='#00000090'
       drawerStyle={{
-        backgroundColor: '#c6cbef',
+        backgroundColor: '#009911',
         width: 240,
       }}
 
